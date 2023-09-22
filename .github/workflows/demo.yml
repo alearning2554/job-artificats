@@ -36,7 +36,7 @@ jobs:
     steps:
       - name: download artifacts
         id: download
-        uses: actions/download-artifacts@v3
+        uses: actions/download-artifact@v3
         with:
           name: files
       - name: files
