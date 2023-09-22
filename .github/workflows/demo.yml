@@ -25,8 +25,7 @@ jobs:
         run: npm ci
       - name: Build website
         run: npm run build
-      - name: download
-        id: test1
+      - name: upload artifacts
         uses: actions/upload-artifact@v3
         with:
           name: files
@@ -35,5 +34,12 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy
-        run: echo "Deploying..."
+      - name: download artifacts
+        id: download
+        uses: actions/download-artifacts@v3
+        with:
+          name: files
+      - name: files
+        run: ls -R
+      - name: displaying files
+        run: echo "${{steps.download.outputs.download-path}}"
