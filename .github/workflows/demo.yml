@@ -26,13 +26,13 @@ jobs:
       - name: Build website
         run: npm run build
       - name: download
+        id: test1
         uses: actions/download-artifact@v3
         with:
-          id: test
           path: test
           name: files
       - name: output values
-        run: echo "{{ steps.download.outputs.download-path }}"
+        run: echo "{{ steps.test1.outputs.download-path }}"
   deploy:
     needs: build
     runs-on: ubuntu-latest
