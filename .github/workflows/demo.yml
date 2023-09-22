@@ -32,7 +32,7 @@ jobs:
           path: test
           name: files
       - name: output values
-        run: echo "{{ steps.test1.outputs.download-path }}"
+        run: echo "${{ steps.test1.outputs.download-path }}"
   deploy:
     needs: build
     runs-on: ubuntu-latest
