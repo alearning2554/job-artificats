@@ -28,3 +28,9 @@ jobs:
     uses: ./.github/workflows/reusable-workflow.yaml
     with:
       artifact_name: files
+  result:
+    needs: download-artifacts
+    runs-on: ubuntu-latest
+    steps:
+      - name: print result
+        run: echo "${{ needs.download-artifacts.outputs.result }}"
