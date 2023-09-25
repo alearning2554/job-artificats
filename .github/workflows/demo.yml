@@ -24,7 +24,5 @@ jobs:
           name: files
           path: dist
   download-artifacts:
-    runs-on: ubuntu-latest
-    steps:
-      - name: reusable workflow
-        run: ./.github/workflows/reusable-workflow.yaml
+    needs: build
+    uses: ./.github/workflows/reusable-workflow.yaml
