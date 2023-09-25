@@ -1,0 +1,8 @@
+name: downloading artifacts
+on: workflow_call
+jobs:
+  download-artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: downloading artifacts
+        run: echo "downloading artifacts"

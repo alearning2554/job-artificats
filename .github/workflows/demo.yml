@@ -23,16 +23,8 @@ jobs:
         with:
           name: files
           path: dist
-  deploy:
-    needs: build
+  download-artifacts:
     runs-on: ubuntu-latest
     steps:
-      - name: download artifacts
-        id: download
-        uses: actions/download-artifact@v3
-        with:
-          name: files
-      - name: files
-        run: ls -R
-      - name: displaying files
-        run: echo "${{steps.download.outputs.download-path}}"
+      - name: reusable workflow
+        run: ./.github/workflows/reusable-workflow.yaml
