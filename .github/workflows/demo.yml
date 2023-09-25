@@ -26,3 +26,5 @@ jobs:
   download-artifacts:
     needs: build
     uses: ./.github/workflows/reusable-workflow.yaml
+    with:
+      artifact_name: files

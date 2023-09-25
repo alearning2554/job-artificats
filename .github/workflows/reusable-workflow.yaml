@@ -1,8 +1,19 @@
 name: downloading artifacts
-on: workflow_call
+on: 
+  workflow_call:
+    inputs:
+      artifact_name:
+        description: name of the deployable artifact files
+        required: false
+        default: dist
+        type: string
 jobs:
   download-artifacts:
     runs-on: ubuntu-latest
     steps:
       - name: downloading artifacts
-        run: echo "downloading artifacts"
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ inputs.artifact_name }}
+      - name: listing files
+        run: ls -R
